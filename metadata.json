@@ -1,0 +1,31 @@
+{
+  "name": "mybuilder-kongfig",
+  "version": "0.0.1",
+  "author": "MyBuilder Limited",
+  "summary": "Install kongfig which is a tool for declaratively configuring Kong",
+  "license": "Apache License, Version 2.0",
+  "source": "git://github.com/mybuilder/kongfig.git",
+  "project_page": "https://github.com/mybuilder/kongfig.git",
+  "issues_url": "https://github.com/mybuilder/kongfig/issues",
+  "description": "This will install kongfig to enable you to declaratively configure your Kong instance",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": ["7", "8"]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.2.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">=2.7.20 <4.0.0"
+    }
+  ],
+  "dependencies": [
+    {"name":"puppetlabs/nodejs","version_requirement":">=0.8.0"},
+    {"name":"puppetlabs/stdlib","version_requirement":"4.x"}
+  ]
+}
