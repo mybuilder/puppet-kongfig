@@ -1,11 +1,11 @@
 {
   "name": "mybuilder-kongfig",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "MyBuilder Limited",
   "summary": "Install kongfig which is a tool for declaratively configuring Kong",
   "license": "Apache License, Version 2.0",
-  "source": "git://github.com/mybuilder/kongfig.git",
-  "project_page": "https://github.com/mybuilder/kongfig.git",
+  "source": "git@github.com:mybuilder/puppet-kongfig.git",
+  "project_page": "git@github.com:mybuilder/puppet-kongfig.git",
   "issues_url": "https://github.com/mybuilder/kongfig/issues",
   "description": "This will install kongfig to enable you to declaratively configure your Kong instance",
   "operatingsystem_support": [
