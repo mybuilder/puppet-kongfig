@@ -1,7 +1,7 @@
 # Setup kongfig the tool for configuring kong
 class kongfig (
   $directory = $kongfig::params::directory,
-  $version = $kongfig::params::version
+  $version = $kongfig::params::version,
 ) inherits kongfig::params {
 
   validate_absolute_path($directory)
