@@ -39,6 +39,7 @@ define kongfig::setup (
   }->
   exec { $name:
     command => "kongfig --path ${config}",
-    require => Package['kongfig']
+    require => Package['kongfig'],
+    path    => [ "/usr/bin/", "/usr/local/bin/" ],
   }
 }
