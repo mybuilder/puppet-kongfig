@@ -5,6 +5,7 @@ Puppet module for installing and managing [Kongfig](https://github.com/mybuilder
 This module is currently tested on:
 
  - Debian (8.0, 7.8)
+ - Ubuntu (14.04)
 
 It may work on other distros.
 
@@ -55,7 +56,7 @@ $consumers = [
 ]
 
 kongfig::setup { 'test-api':
-  kong_server => 127.0.0.1,
+  kong_server => '127.0.0.1',
   kong_port   => 8001,
   apis        => $apis,
   consumers   => $consumers
