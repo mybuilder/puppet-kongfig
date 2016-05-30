@@ -16,7 +16,7 @@ define kongfig::setup (
   if $apis {
     validate_array($apis)
     $api_hash = {
-      'apis' => $apis
+      'apis' => $apis,
     }
   }
 
@@ -24,7 +24,7 @@ define kongfig::setup (
     validate_array($consumers)
 
     $consumer_hash = {
-      'consumers' => $consumers
+      'consumers' => $consumers,
     }
   }
 
@@ -35,10 +35,11 @@ define kongfig::setup (
   file { $config:
     ensure  => file,
     content => sorted_json(merge($host, $api_hash, $consumer_hash), true, 4),
-    require => [File[$kongfig::directory], Package['kongfig']]
+    require => [File[$kongfig::directory], Package['kongfig']],
   }->
   exec { $name:
     command => "kongfig --path ${config}",
-    require => Package['kongfig']
+    require => Package['kongfig'],
+    path    => [ "/usr/bin/", "/usr/local/bin/" ],
   }
 }
