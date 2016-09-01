@@ -33,12 +33,14 @@ define kongfig::setup (
   $config = "${kongfig::directory}/${name}.json"
 
   file { $config:
-    ensure  => file,
-    content => sorted_json(merge($host, $api_hash, $consumer_hash), true, 4),
-    require => [File[$kongfig::directory], Package['kongfig']]
-  }->
+      ensure  => file,
+      content => sorted_json(merge($host, $api_hash, $consumer_hash), true, 4),
+      require => [File[$kongfig::directory], Package['kongfig']]
+   }
+
   exec { $name:
     command => "kongfig --path ${config}",
-    require => Package['kongfig']
+    subscribe   => File[$config],
+    refreshonly => true
   }
 }
