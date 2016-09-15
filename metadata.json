@@ -1,6 +1,6 @@
 {
   "name": "mybuilder-kongfig",
-  "version": "0.1",
+  "version": "0.1.1",
   "author": "MyBuilder Limited",
   "summary": "Install kongfig which is a tool for declaratively configuring Kong",
   "license": "Apache-2.0",
@@ -29,7 +29,7 @@
     }
   ],
   "dependencies": [
-    {"name":"puppetlabs/nodejs","version_requirement":">=0.8.0"},
+    {"name":"puppet-nodejs","version_requirement":">=1.1.0"},
     {"name":"puppetlabs/stdlib","version_requirement":">=4.0.0 < 5.0.0"}
   ]
 }
