@@ -41,7 +41,7 @@ define kongfig::setup (
   exec { $name:
     command => "kongfig --path ${config}",
     subscribe   => File[$config],
-    refreshonly => true
+    refreshonly => true,
     path    => [ "/usr/bin/", "/usr/local/bin/" ],
   }
 }
