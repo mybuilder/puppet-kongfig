@@ -1,3 +1,8 @@
+Release 0.1.2
+=============
+
+Add default empty `apis` and `consumers` hashes, to remove warnings appearing in Puppet 4.
+
 Release 0.1.1
 =============
 

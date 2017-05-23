@@ -18,6 +18,8 @@ define kongfig::setup (
     $api_hash = {
       'apis' => $apis,
     }
+  } else {
+    $api_hash = {}
   }
 
   if $consumers {
@@ -26,6 +28,8 @@ define kongfig::setup (
     $consumer_hash = {
       'consumers' => $consumers,
     }
+  } else {
+    $consumer_hash = {}
   }
 
   require kongfig
