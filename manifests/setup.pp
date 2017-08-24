@@ -5,6 +5,7 @@ define kongfig::setup (
   $kong_port = undef,
   $apis = undef,
   $consumers = undef,
+  $plugins = undef,
 ) {
   validate_ipv4_address($kong_server)
   $host = {
@@ -32,13 +33,23 @@ define kongfig::setup (
     $consumer_hash = {}
   }
 
+  if $plugins {
+    validate_array($plugins)
+
+    $plugins_hash = {
+      'plugins' => $plugins,
+    }
+  } else {
+    $plugins_hash = {}
+  }
+
   require kongfig
 
   $config = "${kongfig::directory}/${name}.json"
 
   file { $config:
     ensure  => file,
-    content => sorted_json(merge($host, $api_hash, $consumer_hash), true, 4),
+    content => sorted_json(merge($host, $api_hash, $consumer_hash, $plugins_hash), true, 4),
     require => [File[$kongfig::directory], Package['kongfig']],
   }
 
@@ -46,6 +57,6 @@ define kongfig::setup (
     command => "kongfig --path ${config}",
     subscribe   => File[$config],
     refreshonly => true,
-    path    => [ "/usr/bin/", "/usr/local/bin/" ],
+    path    => [ "/usr/bin/", "/usr/local/bin/", "/usr/local/node/bin" ],
   }
 }
